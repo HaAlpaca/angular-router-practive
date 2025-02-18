@@ -7,6 +7,6 @@ import { of } from "rxjs";
 export class AuthService {
   constructor() {}
   get currentUser() {
-    return of({ username: "ha", articles: ["title-1"] });
+    return of({ username: "ha", articles: ["title-1", "title-3"] });
   }
 }

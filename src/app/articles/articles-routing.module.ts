@@ -4,6 +4,8 @@ import { ArticleListComponent } from "./article-list/article-list.component";
 import { ArticleDetailsComponent } from "./article-details/article-details.component";
 import { ArticlesGuard } from "../guards/articles.guard";
 import { ArticleDetailEditComponent } from "./article-detail-edit/article-detail-edit.component";
+import { NoArticleComponent } from "./no-article/no-article.component";
+import { ArticleResolver } from "../resolvers/article.resolver";
 
 const routes: Routes = [
   // {
@@ -14,6 +16,7 @@ const routes: Routes = [
   //   ],
   // },
   { path: "", component: ArticleListComponent },
+  { path: "no-article", component: NoArticleComponent },
   {
     path: ":slug",
     canActivateChild: [ArticlesGuard],
@@ -21,6 +24,9 @@ const routes: Routes = [
       {
         path: "",
         component: ArticleDetailsComponent,
+        resolve: {
+          article: ArticleResolver,
+        },
       },
       {
         path: "edit",
